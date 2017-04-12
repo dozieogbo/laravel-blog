@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Clean Blog</title>
+    <title>{{ config('app.name', 'Laravel Blog') }}</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="{{URL::to('vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
@@ -42,8 +42,13 @@
     <script src="{{URL::to('vendor/bootstrap/js/bootstrap.min.js')}}"></script>
 
     <!-- Contact Form JavaScript -->
-    <script src="{{URL::to('js/jqBootstrapValidation.js')}}"></script>
-    <script src="{{URL::to('js/contact_me.js')}}"></script>
+    <!--<script src="{{URL::to('js/jqBootstrapValidation.js')}}"></script>-->
+    <!--<script src="{{URL::to('js/contact_me.js')}}"></script>-->
+    <script>
+    $(document).ready(function(){
+        $('[data-toggle="tooltip"]').tooltip(); 
+    });
+    </script>
 
     <!-- Theme JavaScript -->
     <script src="{{URL::to('js/clean-blog.min.js')}}"></script>

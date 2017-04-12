@@ -29,6 +29,14 @@
     <div class="row">
         <div class="col-md-12">
             <form action="{{route('admin.create')}}" class="" method="post">
+            <div class="form-group-sm">
+            <label class="control-label">Tags: </label>
+                @foreach($tags as $tag)
+                    <label class="checkbox-inline" style="font-size: 0.8em;">
+                        <input name="tags[]" type="checkbox" value="{{$tag->id}}">{{$tag->name}}
+                    </label>
+                @endforeach
+            </div>
                 <div class="form-group">
                     <label class="control-label">Title</label>
                     <input type="text" class="form-control" placeholder="Title" name = "title">

@@ -14,19 +14,29 @@
     </div>
     @endif
     <div class="row">
-        <form action="{{route('admin.edit')}}" method="post">
+        <form action="{{route('admin.update')}}" method="post">
+            <div class="form-group-sm">
+            <label class="control-label">
+                @foreach($tags as $tag)
+                    <label class="checkbox-inline" style="font-size: 0.8em;">
+                    <input name="tags[]" type="checkbox" value="{{$tag->id}}" {{$post->tags->contains('id', $tag->id) ? 'checked' : ''}}>{{$tag->name}}
+                </label>
+                @endforeach
+                Tags
+            </label>
+            </div>
             <div class="form-group">
                 <label class="control-label">Title</label>
-                <input type="text" class="form-control" placeholder="Title" name = "title" value="{{$post['title']}}" required>
+                <input type="text" class="form-control" placeholder="Title" name = "title" value="{{$post->title}}" required>
             </div>
             <div class="form-group">
                 <label class="control-label">Subtitle/Caption</label>
-                <input type="text" class="form-control" placeholder="A short summary of your post" value="{{$post['subtitle']}}" name = "subtitle" required>
+                <input type="text" class="form-control" placeholder="A short summary of your post" value="{{$post->summary}}" name = "summary" required>
             </div>
             <div class="form-group">
                 <label class="control-label">Content</label>
                 <textarea class="form-control" placeholder="Content" id="textarea" name = "content">
-                    {{$post['content']}}
+                    {{$post->content}}
                 </textarea>
             </div>
             {{csrf_field()}}
